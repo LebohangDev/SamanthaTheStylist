@@ -1,0 +1,101 @@
+/* src/Gallery/Gallery.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Cardo:wght@400&display=swap');
+
+.galleryWrapper {
+    width: 100%;
+    background: #E5CD80;
+    padding: 100px 0 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.heading {
+    text-align: center;
+    font-family: 'Cardo';
+    font-size: 72px;
+    font-weight: 400;
+    color: #000;
+    line-height: 1;
+    margin-bottom: 60px;
+    padding: 0 20px;
+}
+
+.carousel {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 40px;
+}
+
+.imageWrapper {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.dots {
+    display: flex;
+    gap: 12px;
+    margin-top: 32px;
+    background: #FFE3BD;
+    padding: 12px 24px;
+    border-radius: 30px;
+}
+
+.dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: background 0.25s ease;
+}
+
+.activeDot {
+    background: #a26c3f;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    .heading {
+        font-size: 56px;
+    }
+
+    .carousel {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 24px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .heading {
+        font-size: 42px;
+    }
+
+    .carousel {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+    }
+
+    .imageWrapper {
+        aspect-ratio: 3 / 4;
+    }
+
+    .dot {
+        width: 12px;
+        height: 12px;
+    }
+}

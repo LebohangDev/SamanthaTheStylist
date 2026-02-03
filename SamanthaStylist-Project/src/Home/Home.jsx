@@ -1,0 +1,43 @@
+// src/Home/Home.jsx
+import React from "react";
+import { motion } from "framer-motion";
+import { staggerContainer, fadeInUp } from "../animations";
+import styles from "./Home.module.css";
+
+function Home() {
+  return (
+    <motion.section
+      className={styles.heroWrapper}
+      variants={staggerContainer}
+      initial="hidden"
+      animate="visible"
+    >
+      <div className={styles.heroInner}>
+        <motion.div variants={fadeInUp} className={styles.heroImage}>
+          <img src="/Images/hero.png" alt="Hero" className={styles.heroImg} />
+        </motion.div>
+
+        <motion.div variants={fadeInUp} className={styles.heroText}>
+          <p className={styles.kicker}>Samantha · The Stylist</p>
+          <h1 className={styles.title}>Timeless Beauty, Expertly Styled</h1>
+          <p className={styles.subtitle}>
+            Personalized hair artistry designed to enhance your natural beauty.
+            From effortless everyday looks to statement styles, every
+            appointment is tailored just for you.{" "}
+          </p>
+
+          <div className={styles.actions}>
+            <button type="button" className={styles.secondary}>
+              Learn More
+            </button>
+            <button type="button" className={styles.primary}>
+              BOOK NOW
+            </button>
+          </div>
+        </motion.div>
+      </div>
+    </motion.section>
+  );
+}
+
+export default Home;

@@ -1,0 +1,161 @@
+/* src/Booking/Booking.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Cardo:wght@400&display=swap');
+
+.bookingWrapper {
+    width: 100%;
+    padding: 100px 0 140px;
+    background: linear-gradient(0deg, #FAFBED 0%, #EFE4B7 0.01%, #E5CD80 100%);
+}
+
+.heading {
+    text-align: center;
+    font-family: 'Cardo';
+    font-size: 72px;
+    font-weight: 400;
+    color: #000;
+    margin-bottom: 60px;
+}
+
+.layout {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.calendarCard,
+.formCard {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 28px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.subheading {
+    font-family: 'Inter';
+    font-size: 22px;
+    font-weight: 700;
+    color: #492E3A;
+    margin-bottom: 16px;
+}
+
+.calendarGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.dateBtn {
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #d8c6b0;
+    background: #faf7f0;
+    cursor: pointer;
+    font-family: 'Inter';
+}
+
+.activeDate {
+    background: #D7AF41;
+    color: #fff;
+}
+
+.slotGrid {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.slotBtn {
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: 1px solid #d8c6b0;
+    background: #faf7f0;
+    cursor: pointer;
+}
+
+.activeSlot {
+    background: #D7AF41;
+    color: #fff;
+}
+
+.fieldGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 14px;
+}
+
+.fieldGroup input {
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #d8c6b0;
+    background: #faf7f0;
+}
+
+.summary {
+    margin-top: 20px;
+}
+
+.summaryBox {
+    background: #faf7f0;
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid #d8c6b0;
+}
+
+.summaryLabel {
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.summaryItem {
+    margin: 4px 0;
+}
+
+.total {
+    margin-top: 12px;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.primary {
+    margin-top: 20px;
+    padding: 12px 28px;
+    border-radius: 0;
+    border: none;
+    background-color: #D7AF41;
+    color: #ffffff;
+    font-family: 'Inter';
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.primary:hover {
+    background-color: #b99634;
+}
+
+@media (max-width: 900px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    .heading {
+        font-size: 56px;
+    }
+}
+
+@media (max-width: 600px) {
+    .heading {
+        font-size: 42px;
+    }
+
+    .layout {
+        padding: 0 20px;
+    }
+}

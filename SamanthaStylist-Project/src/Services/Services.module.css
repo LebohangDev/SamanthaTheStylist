@@ -1,0 +1,150 @@
+/* src/Services/Services.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Cardo:wght@400&display=swap');
+
+.servicesWrapper {
+    width: 100%;
+    padding: 100px 0 140px;
+    background: linear-gradient(0deg, #EFE4B7 0%, rgba(239, 205, 128, 0.87) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.servicesWrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 38%;
+    height: 110%;
+    /* background: url('/Images/services-bg.png') lightgray 50% / cover no-repeat; */
+    background:
+        url('/Images/services-bg.png') right / cover no-repeat,
+        linear-gradient(0deg,
+            #EFE4B7 0%,
+            rgba(239, 205, 128, 0.87) 100%);
+    opacity: 0.3;
+    background-blend-mode: darken;
+    pointer-events: none;
+}
+
+.heading {
+    text-align: center;
+    font-family: 'Cardo';
+    font-size: 72px;
+    font-weight: 400;
+    color: #000;
+    line-height: 1;
+    margin-bottom: 100px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.grid {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    position: relative;
+    z-index: 2;
+}
+
+.card {
+    background: #FAFBED;
+    border-radius: 18px;
+    padding: 24px 20px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+}
+
+.icon {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+.cardTitle {
+    font-family: 'Cardo';
+    font-size: 20px;
+    font-weight: 700;
+    color: #492E3A;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Inter';
+    font-size: 15px;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.row:last-child {
+    border-bottom: none;
+}
+
+.leftSide {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.itemName {
+    color: #492E3A;
+}
+
+.price {
+    font-weight: 600;
+    color: #492E3A;
+}
+
+@media (max-width: 1024px) {
+    .heading {
+        font-size: 56px;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 24px;
+    }
+
+    .servicesWrapper::after {
+        width: 55%;
+    }
+}
+
+@media (max-width: 600px) {
+    .heading {
+        font-size: 42px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+    }
+
+    .servicesWrapper::after {
+        width: 100%;
+        opacity: 0.25;
+    }
+}

@@ -35,7 +35,7 @@ function Nav() {
     >
       <div className={styles.navInner}>
         <div className={styles.logoWrapper}>
-          <img src="/logo.png" alt="Logo" className={styles.logoImg} />
+          <img src="logo.png" alt="Logo" className={styles.logoImg} />
         </div>
 
         <nav className={styles.desktopNav}>

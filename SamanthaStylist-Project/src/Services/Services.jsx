@@ -21,7 +21,7 @@ function Services({ onSelectService }) {
   const serviceGroups = [
     {
       title: "Hair Styling",
-      icon: "/Icons/style.png",
+      icon: "Icons/style.png",
       items: [
         { name: "Wash and Cut", price: 150 },
         { name: "Wash Cut & Dry", price: 250 },
@@ -30,7 +30,7 @@ function Services({ onSelectService }) {
     },
     {
       title: "Hair Treatments",
-      icon: "/Icons/treatment.png",
+      icon: "Icons/treatment.png",
       items: [
         { name: "Keratin", price: 150 },
         { name: "Botox", price: 250 },
@@ -39,7 +39,7 @@ function Services({ onSelectService }) {
     },
     {
       title: "Hair Dye",
-      icon: "/Icons/dye.png",
+      icon: "Icons/dye.png",
       items: [
         { name: "Full Dye", price: 150 },
         { name: "Highlights", price: 250 },
@@ -48,7 +48,7 @@ function Services({ onSelectService }) {
     },
     {
       title: "Makeup Services",
-      icon: "/Icons/makeup.png",
+      icon: "Icons/makeup.png",
       items: [
         { name: "Bridal", price: 2500 },
         { name: "Party", price: 600 },

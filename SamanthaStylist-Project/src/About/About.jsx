@@ -37,17 +37,17 @@ function About() {
 
           <motion.div variants={fadeInUp} className={styles.carousel}>
             <img
-              src="/Images/gallery1.png"
+              src="Images/gallery1.png"
               alt=""
               className={styles.carouselImg}
             />
             <img
-              src="/Images/gallery2.png"
+              src="Images/gallery2.png"
               alt=""
               className={styles.carouselImg}
             />
             <img
-              src="/Images/gallery3.png"
+              src="Images/gallery3.png"
               alt=""
               className={styles.carouselImg}
             />
@@ -65,7 +65,7 @@ function About() {
 
         <motion.div variants={fadeInUp} className={styles.right}>
           <img
-            src="/Images/about-main.png"
+            src="Images/about-main.png"
             alt="About Samantha"
             className={styles.mainImg}
           />

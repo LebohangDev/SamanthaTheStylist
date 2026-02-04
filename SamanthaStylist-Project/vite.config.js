@@ -5,11 +5,6 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   base: '/SamanthaTheStylist/',
   plugins: [react()],
-  build: {
-    rollupOptions: {
-      external: ['@calcom/embed-react']
-    }
-  },
   server: {
     proxy: {
       '/api': {

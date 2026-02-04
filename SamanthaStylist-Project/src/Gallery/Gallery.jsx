@@ -1,26 +1,54 @@
 // src/Gallery/Gallery.jsx
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { sectionReveal, fadeInUp } from "../animations";
 import styles from "./Gallery.module.css";
 
 const images = [
-  "/Images/gallery1.png",
-  "/Images/gallery2.png",
-  "/Images/gallery3.png",
-  "/Images/gallery4.png",
-  "/Images/gallery5.png",
-  "/Images/gallery6.png",
-  "/Images/gallery7.png",
-  "/Images/gallery8.png",
-  "/Images/gallery9.png",
+  "Images/gallery1.png",
+  "Images/gallery2.png",
+  "Images/gallery3.png",
+  "Images/gallery4.png",
+  "Images/gallery5.png",
+  "Images/gallery6.png",
+  "Images/gallery7.png",
+  "Images/gallery8.png",
+  "Images/gallery9.png",
 ];
 
 function Gallery() {
   const [page, setPage] = useState(0);
+  const [mobilePage, setMobilePage] = useState(0);
+  const mobileRef = useRef(null);
 
   const handleDotClick = (index) => {
     setPage(index);
+  };
+
+  const handleMobileDotClick = (index) => {
+    setMobilePage(index);
+    if (mobileRef.current) {
+      // Estimate item width: 80% container width + 16px gap
+      const containerWidth = mobileRef.current.offsetWidth;
+      // Note: simple approximation
+      const itemWidth = (containerWidth * 0.8) + 16;
+      mobileRef.current.scrollTo({
+        left: index * itemWidth,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const onMobileScroll = () => {
+    if (mobileRef.current) {
+      const left = mobileRef.current.scrollLeft;
+      const containerWidth = mobileRef.current.offsetWidth;
+      const itemWidth = (containerWidth * 0.8) + 16;
+      const index = Math.round(left / itemWidth);
+      if (index !== mobilePage && index >= 0 && index < 5) {
+        setMobilePage(index);
+      }
+    }
   };
 
   const startIndex = page * 3;
@@ -36,27 +64,61 @@ function Gallery() {
     >
       <h2 className={styles.heading}>A Gallery of My Clients</h2>
 
-      <motion.div className={styles.carousel} variants={fadeInUp}>
-        {visibleImages.map((src, i) => (
-          <motion.div
-            key={i}
-            className={styles.imageWrapper}
-            variants={fadeInUp}
-          >
-            <img src={src} alt="" className={styles.image} />
-          </motion.div>
-        ))}
-      </motion.div>
+      <div className={styles.desktopView}>
+        <motion.div className={styles.carousel} variants={fadeInUp}>
+          {visibleImages.map((src, i) => (
+            <motion.div
+              key={i}
+              className={styles.imageWrapper}
+              variants={fadeInUp}
+            >
+              <img src={src} alt="" className={styles.image} />
+            </motion.div>
+          ))}
+        </motion.div>
 
-      <div className={styles.dots}>
-        {[0, 1, 2].map((i) => (
-          <button
-            key={i}
-            type="button"
-            className={`${styles.dot} ${page === i ? styles.activeDot : ""}`}
-            onClick={() => handleDotClick(i)}
-          />
-        ))}
+        <div className={styles.dots}>
+          {[0, 1, 2].map((i) => (
+            <button
+              key={i}
+              type="button"
+              className={`${styles.dot} ${page === i ? styles.activeDot : ""}`}
+              onClick={() => handleDotClick(i)}
+            />
+          ))}
+        </div>
+      </div>
+
+      <div className={styles.mobileView}>
+        <div
+          className={styles.mobileCarousel}
+          ref={mobileRef}
+          onScroll={onMobileScroll}
+        >
+          {/* Populating with recycled images 1-3 as requested for mobile */}
+          {[
+            "Images/gallery1.png",
+            "Images/gallery2.png",
+            "Images/gallery3.png",
+            "Images/gallery1.png",
+            "Images/gallery2.png"
+          ].map((src, i) => (
+            <div key={i} className={styles.mobileImageWrapper}>
+              <img src={src} alt="" className={styles.image} />
+            </div>
+          ))}
+        </div>
+
+        <div className={styles.dots}>
+          {[...Array(5)].map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              className={`${styles.dot} ${mobilePage === i ? styles.activeDot : ""}`}
+              onClick={() => handleMobileDotClick(i)}
+            />
+          ))}
+        </div>
       </div>
     </motion.section>
   );

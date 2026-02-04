@@ -79,19 +79,78 @@
     }
 }
 
+/* Base styles for visibility management */
+.mobileView {
+    display: none;
+}
+
+.desktopView {
+    display: block;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
 /* Mobile */
 @media (max-width: 600px) {
     .heading {
         font-size: 42px;
     }
 
-    .carousel {
-        grid-template-columns: 1fr;
-        padding: 0 20px;
+    .desktopView {
+        display: none;
     }
 
-    .imageWrapper {
+    .mobileView {
+        display: block;
+        width: 100%;
+        overflow: hidden;
+        /* Hide scrollbar for the container if needed */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .mobileCarousel {
+        display: flex;
+        overflow-x: auto;
+        gap: 16px;
+        padding-left: 20px;
+        /* Moved padding here */
+        padding-right: 20px;
+        /* Padding at end of scroll */
+        padding-bottom: 20px;
+        /* Expand for scrollbar */
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        /* Firefox */
+        width: 100%;
+        /* Ensure full width */
+    }
+
+    .mobileCarousel::-webkit-scrollbar {
+        display: none;
+        /* Chrome/Safari */
+    }
+
+    .mobileImageWrapper {
+        flex: 0 0 80%;
+        /* Show 80% of image to hint scroll */
         aspect-ratio: 3 / 4;
+        /* Mobile aspect ratio */
+        border-radius: 18px;
+        overflow: hidden;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        scroll-snap-align: center;
+    }
+
+    .image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
     .dot {

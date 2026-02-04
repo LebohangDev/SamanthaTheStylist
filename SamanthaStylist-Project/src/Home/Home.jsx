@@ -14,7 +14,7 @@ function Home() {
     >
       <div className={styles.heroInner}>
         <motion.div variants={fadeInUp} className={styles.heroImage}>
-          <img src="/Images/hero.png" alt="Hero" className={styles.heroImg} />
+          <img src="Images/hero.png" alt="Hero" className={styles.heroImg} />
         </motion.div>
 
         <motion.div variants={fadeInUp} className={styles.heroText}>

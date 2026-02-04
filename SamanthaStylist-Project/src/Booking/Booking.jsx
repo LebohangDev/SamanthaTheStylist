@@ -1,6 +1,6 @@
 // src/Booking/Booking.jsx
 import React, { useState } from "react";
-import CalInline from "@calcom/embed-react";
+import { Embed, CalInline } from "@calcom/embed-react";
 import { motion } from "framer-motion";
 import { sectionReveal, fadeInUp, staggerContainer } from "../animations";
 import styles from "./Booking.module.css";

@@ -18,6 +18,7 @@ function Booking({ selectedServices }) {
 
   return (
     <motion.section
+      id="booking"
       className={styles.bookingWrapper}
       variants={sectionReveal}
       initial="hidden"

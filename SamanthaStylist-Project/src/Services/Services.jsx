@@ -59,6 +59,7 @@ function Services({ onSelectService }) {
 
   return (
     <motion.section
+      id="services"
       className={styles.servicesWrapper}
       variants={sectionReveal}
       initial="hidden"

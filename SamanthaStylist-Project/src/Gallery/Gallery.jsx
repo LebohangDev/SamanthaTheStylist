@@ -8,12 +8,12 @@ const images = [
   "Images/gallery1.png",
   "Images/gallery2.png",
   "Images/gallery3.png",
-  "Images/gallery4.png",
-  "Images/gallery5.png",
-  "Images/gallery6.png",
-  "Images/gallery7.png",
-  "Images/gallery8.png",
-  "Images/gallery9.png",
+  "Images/gallery1.png",
+  "Images/gallery2.png",
+  "Images/gallery3.png",
+  "Images/gallery1.png",
+  "Images/gallery2.png",
+  "Images/gallery3.png",
 ];
 
 function Gallery() {
@@ -53,6 +53,8 @@ function Gallery() {
 
   const startIndex = page * 3;
   const visibleImages = images.slice(startIndex, startIndex + 3);
+  // Use first 5 images for mobile carousel
+  const mobileImages = images.slice(0, 5);
 
   return (
     <motion.section
@@ -95,14 +97,7 @@ function Gallery() {
           ref={mobileRef}
           onScroll={onMobileScroll}
         >
-          {/* Populating with recycled images 1-3 as requested for mobile */}
-          {[
-            "Images/gallery1.png",
-            "Images/gallery2.png",
-            "Images/gallery3.png",
-            "Images/gallery1.png",
-            "Images/gallery2.png"
-          ].map((src, i) => (
+          {mobileImages.map((src, i) => (
             <div key={i} className={styles.mobileImageWrapper}>
               <img src={src} alt="" className={styles.image} />
             </div>
@@ -110,7 +105,7 @@ function Gallery() {
         </div>
 
         <div className={styles.dots}>
-          {[...Array(5)].map((_, i) => (
+          {mobileImages.map((_, i) => (
             <button
               key={i}
               type="button"

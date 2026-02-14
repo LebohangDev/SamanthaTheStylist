@@ -189,6 +189,10 @@
         font-size: 18px;
     }
 
+    .carousel {
+        justify-content: center;
+    }
+
     .carouselImg {
         width: 100px;
         height: 140px;

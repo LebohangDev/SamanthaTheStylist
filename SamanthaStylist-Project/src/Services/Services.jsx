@@ -7,15 +7,20 @@ import styles from "./Services.module.css";
 function Services({ onSelectService }) {
   const [selected, setSelected] = useState([]);
 
+  const scrollToBooking = () => {
+    const el = document.getElementById("booking-section");
+    if (!el) return;
+
+    const y = el.getBoundingClientRect().top + window.pageYOffset + 80;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  };
+
   const toggleService = (service, price) => {
-    let updated;
-    if (selected.some((s) => s.name === service)) {
-      updated = selected.filter((s) => s.name !== service);
-    } else {
-      updated = [...selected, { name: service, price }];
-    }
+    const updated = [{ name: service, price }];
     setSelected(updated);
     onSelectService && onSelectService(updated);
+
+    setTimeout(scrollToBooking, 150);
   };
 
   const serviceGroups = [
@@ -24,7 +29,7 @@ function Services({ onSelectService }) {
       icon: "/Icons/style.png",
       items: [
         { name: "Wash and Cut", price: 150 },
-        { name: "Wash Cut & Dry", price: 250 },
+        { name: "Wash Cut & Style", price: 250 },
         { name: "Bangs Cut", price: 45 },
       ],
     },
@@ -74,29 +79,52 @@ function Services({ onSelectService }) {
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
       >
-        {serviceGroups.map((group, idx) => (
-          <motion.div key={idx} className={styles.card} variants={fadeInUp}>
-            <div className={styles.cardHeader}>
-              <img src={group.icon} alt="" className={styles.icon} />
-              <h3 className={styles.cardTitle}>{group.title}</h3>
-            </div>
+        {serviceGroups.map((group, idx) => {
+          const cardIsSelected = selected.some((s) =>
+            group.items.some((i) => i.name === s.name),
+          );
 
-            {group.items.map((item, i) => (
-              <label key={i} className={styles.row}>
-                <div className={styles.leftSide}>
-                  <input
-                    type="checkbox"
-                    checked={selected.some((s) => s.name === item.name)}
-                    onChange={() => toggleService(item.name, item.price)}
-                    className={styles.checkbox}
-                  />
-                  <span className={styles.itemName}>{item.name}</span>
-                </div>
-                <span className={styles.price}>{item.price}</span>
-              </label>
-            ))}
-          </motion.div>
-        ))}
+          return (
+            <motion.div
+              key={idx}
+              className={`${styles.card} ${
+                cardIsSelected ? styles.selectedCard : ""
+              }`}
+              variants={fadeInUp}
+              animate={cardIsSelected ? { scale: 1.03 } : { scale: 1 }}
+              transition={{ type: "spring", stiffness: 260, damping: 20 }}
+            >
+              <div className={styles.cardHeader}>
+                <img src={group.icon} alt="" className={styles.icon} />
+                <h3 className={styles.cardTitle}>{group.title}</h3>
+              </div>
+
+              {group.items.map((item, i) => {
+                const rowSelected = selected.some((s) => s.name === item.name);
+
+                return (
+                  <label
+                    key={i}
+                    className={`${styles.row} ${
+                      rowSelected ? styles.selectedRow : ""
+                    }`}
+                  >
+                    <div className={styles.leftSide}>
+                      <input
+                        type="checkbox"
+                        checked={rowSelected}
+                        onChange={() => toggleService(item.name, item.price)}
+                        className={styles.checkbox}
+                      />
+                      <span className={styles.itemName}>{item.name}</span>
+                    </div>
+                    <span className={styles.price}>{item.price}</span>
+                  </label>
+                );
+              })}
+            </motion.div>
+          );
+        })}
       </motion.div>
     </motion.section>
   );

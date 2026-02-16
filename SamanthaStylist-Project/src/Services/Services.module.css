@@ -7,7 +7,7 @@
     background: linear-gradient(0deg, #EFE4B7 0%, rgba(239, 205, 128, 0.87) 100%);
     position: relative;
     overflow: hidden;
-    height: 1000px;
+    height: 100%;
 }
 
 .servicesWrapper::after {

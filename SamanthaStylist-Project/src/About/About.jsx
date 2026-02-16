@@ -54,11 +54,25 @@ function About() {
           </motion.div>
 
           <motion.div variants={fadeInUp} className={styles.actions}>
-            <button type="button" className={styles.primary}>
-              BOOK NOW
-            </button>
-            <button type="button" className={styles.secondary}>
+            <button
+              type="button"
+              className={styles.secondary}
+              onClick={() => {
+                const el = document.getElementById("services");
+                if (el) el.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
               Learn More
+            </button>
+            <button
+              type="button"
+              className={styles.primary}
+              onClick={() => {
+                const el = document.getElementById("booking");
+                if (el) el.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              BOOK NOW
             </button>
           </motion.div>
         </motion.div>

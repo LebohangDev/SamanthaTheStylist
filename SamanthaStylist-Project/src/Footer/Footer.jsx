@@ -24,13 +24,19 @@ function Footer() {
         <span className={styles.center}>Developed by Creators Blueprint</span>
 
         <div className={styles.socials}>
-          <a href="#" className={styles.icon}>
+          <a
+            href="https://www.instagram.com/samantha_the_stylist_dubai"
+            className={styles.icon}
+          >
             <i className="ri-instagram-line"></i>
           </a>
-          <a href="#" className={styles.icon}>
-            <i className="ri-twitter-x-line"></i>
+          <a href="https://wa.me/+971554120771" className={styles.icon}>
+            <i className="ri-whatsapp-line"></i>
           </a>
-          <a href="#" className={styles.icon}>
+          <a
+            href="mailto:samanthathestylistdubai@gmail.com"
+            className={styles.icon}
+          >
             <i className="ri-mail-line"></i>
           </a>
         </div>

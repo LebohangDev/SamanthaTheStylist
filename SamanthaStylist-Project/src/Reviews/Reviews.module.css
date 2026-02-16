@@ -1,0 +1,53 @@
+.reviewsWrapper {
+    width: 100%;
+    padding: 100px 0 140px;
+    background: linear-gradient(0deg, #FAFBED 0%, #EFE4B7 0.01%, #E5CD80 100%);
+}
+
+.heading {
+    text-align: center;
+    font-family: 'Cardo';
+    font-size: 64px;
+    font-weight: 400;
+    color: #000;
+    margin-bottom: 50px;
+}
+
+.reviewsCard {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 28px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Make widget responsive */
+.reviewsCard>div {
+    width: 100%;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .heading {
+        font-size: 48px;
+        margin-bottom: 40px;
+    }
+
+    .reviewsCard {
+        padding: 20px;
+        margin: 0 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .heading {
+        font-size: 38px;
+    }
+
+    .reviewsCard {
+        padding: 16px;
+        margin: 0 12px;
+    }
+}

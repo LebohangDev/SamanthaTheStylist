@@ -7,6 +7,7 @@
     background: linear-gradient(0deg, #EFE4B7 0%, rgba(239, 205, 128, 0.87) 100%);
     position: relative;
     overflow: hidden;
+    height: 1000px;
 }
 
 .servicesWrapper::after {
@@ -14,7 +15,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: 38%;
+    width: 45%;
     height: 110%;
     /* background: url('/Images/services-bg.png') lightgray 50% / cover no-repeat; */
     background:
@@ -42,7 +43,7 @@
 
 .grid {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 40px;
     display: grid;
@@ -117,6 +118,27 @@
     font-weight: 600;
     color: #492E3A;
 }
+
+/* Smooth animation for cards */
+.card {
+    transition: all 0.25s ease;
+}
+
+/* Highlight selected card */
+.selectedCard {
+    border: 2px solid #D7AF41;
+    box-shadow: 0 0 14px rgba(215, 175, 65, 0.35);
+    background: #fffdf5;
+}
+
+/* Highlight selected row */
+.selectedRow {
+    background: rgba(215, 175, 65, 0.12);
+    border-radius: 8px;
+    padding: 8px;
+    transition: background 0.25s ease, padding 0.25s ease;
+}
+
 
 @media (max-width: 1024px) {
     .heading {

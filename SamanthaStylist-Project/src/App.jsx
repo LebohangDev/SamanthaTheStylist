@@ -5,6 +5,7 @@ import Home from "./Home/Home.jsx";
 import About from "./About/About.jsx";
 import Services from "./Services/Services.jsx";
 import Booking from "./Booking/Booking.jsx";
+import Reviews from "./Reviews/Reviews.jsx";
 import Gallery from "./Gallery/Gallery.jsx";
 import Footer from "./Footer/Footer.jsx";
 
@@ -33,6 +34,9 @@ function App() {
           </section>
           <section id="booking">
             <Booking selectedServices={selectedServices} />
+          </section>
+          <section id="reviews">
+            <Reviews />
           </section>
           <section id="gallery">
             <Gallery />

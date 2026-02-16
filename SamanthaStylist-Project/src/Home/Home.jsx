@@ -1,10 +1,13 @@
 // src/Home/Home.jsx
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { staggerContainer, fadeInUp } from "../animations";
 import styles from "./Home.module.css";
 
 function Home() {
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 600], [0, 40]);
+
   return (
     <motion.section
       className={styles.heroWrapper}
@@ -12,6 +15,21 @@ function Home() {
       initial="hidden"
       animate="visible"
     >
+      {/* <img
+        src="/Images/section-bg-home.png"
+        alt=""
+        aria-hidden="true"
+        className={styles.sectionBg}
+      /> */}
+
+      <motion.img
+        src="/Images/section-bg-home.png"
+        alt=""
+        aria-hidden="true"
+        className={styles.sectionBg}
+        style={{ y }}
+      />
+
       <div className={styles.heroInner}>
         <motion.div variants={fadeInUp} className={styles.heroImage}>
           <img src="Images/hero.png" alt="Hero" className={styles.heroImg} />

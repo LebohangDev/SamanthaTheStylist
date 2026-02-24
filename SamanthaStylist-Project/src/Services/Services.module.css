@@ -7,7 +7,6 @@
     background: linear-gradient(0deg, #EFE4B7 0%, rgba(239, 205, 128, 0.87) 100%);
     position: relative;
     overflow: hidden;
-    /* height: 1000px; */
 }
 
 .servicesWrapper::after {
@@ -17,7 +16,6 @@
     right: -10%;
     width: 50%;
     height: 100%;
-    /* background: url('/Images/services-bg.png') lightgray 50% / cover no-repeat; */
     background:
         url('/Images/services-bg.png') right / cover no-repeat,
         linear-gradient(0deg,
@@ -56,11 +54,12 @@
 .card {
     background: #FAFBED;
     border-radius: 18px;
-    padding: 24px 20px;
+    padding: 28px 22px;
     border: 1px solid rgba(0, 0, 0, 0.15);
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 16px;
+    transition: all 0.25s ease;
 }
 
 .cardHeader {
@@ -83,25 +82,30 @@
     color: #492E3A;
 }
 
+/* ROW: double-line layout */
 .row {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    /* stack name + price */
+    align-items: flex-start;
     font-family: 'Inter';
     font-size: 15px;
-    padding: 8px 0;
+    padding: 10px 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     cursor: pointer;
+    gap: 4px;
 }
 
 .row:last-child {
     border-bottom: none;
 }
 
+/* FIRST LINE: checkbox + name */
 .leftSide {
     display: flex;
     align-items: center;
     gap: 10px;
+    width: 100%;
 }
 
 .checkbox {
@@ -119,15 +123,18 @@
     white-space: nowrap;
 }
 
+/* SECOND LINE: price aligned right */
 .price {
+    width: 100%;
     font-weight: 600;
     color: #492E3A;
-    white-space: nowrap;
-}
-
-/* Smooth animation for cards */
-.card {
-    transition: all 0.25s ease;
+    opacity: 0.85;
+    font-size: 14px;
+    text-align: right;
+    white-space: normal;
+    /* allow wrapping for long ranges */
+    word-break: break-word;
+    /* prevent overflow */
 }
 
 /* Highlight selected card */
@@ -145,6 +152,12 @@
     transition: background 0.25s ease, padding 0.25s ease;
 }
 
+.row+.row {
+    margin-top: 6px;
+}
+
+/* remove special case for card 2 to keep consistency */
+/* .card:nth-child(2) .row { ... } removed */
 
 @media (max-width: 1024px) {
     .heading {

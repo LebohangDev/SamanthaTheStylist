@@ -39,12 +39,18 @@ function Services({ onSelectService }) {
       title: "Hair Treatments",
       icon: "/Icons/treatment.png",
       items: [
-        { name: "Keratin", price: "800-1500" },
-        { name: "Hair Botox", price: "800-1500" },
-        { name: "Protein", price: "800-1500" },
-        { name: "Collagen", price: "800-1500" },
-        { name: "Hair Toning", price: "120-200" },
-        { name: "Olaplex", price: "150-250" },
+        {
+          name: "Keratin & Protein",
+          price: "S 800-1000 | M 1000-1200 | L 1200-1500",
+        },
+        { name: "Hair Botox", price: "S 800-1000 | M 1000-1200 | L 1200-1500" },
+        {
+          name: "Organic Protein",
+          price: "S 800-1000 | M 1000-1200 | L 1200-1500",
+        },
+        // { name: "Collagen", price: "800-1500" },
+        { name: "Hair Toning", price: "S 120 | M 150 | L 200" },
+        { name: "Olaplex", price: "S 150 | M 200 | L 250" },
       ],
     },
 
@@ -52,9 +58,9 @@ function Services({ onSelectService }) {
       title: "Hair Dye & Highlights",
       icon: "/Icons/dye.png",
       items: [
-        { name: "Full Dye", price: "350-600" },
-        { name: "Highlights", price: "400-700" },
-        { name: "Ombre / Balayage", price: "400-700" },
+        { name: "Full Dye", price: "S 350 | M 450 | L 600" },
+        { name: "Highlights", price: "S 400 | M 550 | L 700" },
+        { name: "Ombre & Balayage", price: "S 400 | M 500 | L 700" },
       ],
     },
 
@@ -62,7 +68,7 @@ function Services({ onSelectService }) {
       title: "Makeup Services",
       icon: "/Icons/makeup.png",
       items: [
-        { name: "Bridal", price: 2500 },
+        { name: "Bridal Makeup and Hairstyle", price: 2500 },
         { name: "Evening", price: 400 },
         { name: "Party", price: 600 },
         { name: "Prom", price: 400 },
@@ -122,11 +128,26 @@ function Services({ onSelectService }) {
                 const rowSelected = selected.some((s) => s.name === item.name);
 
                 return (
+                  // <label
+                  //   key={i}
+                  //   className={`${styles.row} ${
+                  //     rowSelected ? styles.selectedRow : ""
+                  //   }`}
+                  // >
+                  //   <div className={styles.leftSide}>
+                  //     <input
+                  //       type="checkbox"
+                  //       checked={rowSelected}
+                  //       onChange={() => toggleService(item.name, item.price)}
+                  //       className={styles.checkbox}
+                  //     />
+                  //     <span className={styles.itemName}>{item.name}</span>
+                  //   </div>
+                  //   <span className={styles.price}>{item.price}</span>
+                  // </label>
                   <label
                     key={i}
-                    className={`${styles.row} ${
-                      rowSelected ? styles.selectedRow : ""
-                    }`}
+                    className={`${styles.row} ${rowSelected ? styles.selectedRow : ""}`}
                   >
                     <div className={styles.leftSide}>
                       <input
@@ -137,6 +158,7 @@ function Services({ onSelectService }) {
                       />
                       <span className={styles.itemName}>{item.name}</span>
                     </div>
+
                     <span className={styles.price}>{item.price}</span>
                   </label>
                 );

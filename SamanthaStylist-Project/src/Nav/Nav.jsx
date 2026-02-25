@@ -9,7 +9,18 @@ function Nav() {
   const [lastScroll, setLastScroll] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const sections = ["home", "about", "services", "gallery"];
+
   const handleScroll = (id) => {
+    // update URL without reloading the page
+    const newPath = id === "home" ? "/" : `/${id}`;
+    try {
+      window.history.pushState(null, "", newPath);
+    } catch (e) {
+      // fallback: replaceState if pushState fails for any reason
+      window.history.replaceState(null, "", newPath);
+    }
+
     setActive(id);
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -17,6 +28,7 @@ function Nav() {
   };
 
   useEffect(() => {
+    // hide/show nav on scroll
     const onScroll = () => {
       const current = window.scrollY;
       if (current > lastScroll && current > 80) setShowNav(false);
@@ -24,7 +36,29 @@ function Nav() {
       setLastScroll(current);
     };
     window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+
+    // listen for external activation (App initial load or other code)
+    const onActivate = (e) => {
+      const id = e?.detail || "home";
+      setActive(id);
+    };
+    window.addEventListener("nav:activate", onActivate);
+
+    // handle browser back/forward (popstate)
+    const onPop = () => {
+      const raw = window.location.pathname || "/";
+      const id = raw.replace(/^\/+|\/+$/g, "") || "home";
+      setActive(id);
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+    window.addEventListener("popstate", onPop);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("nav:activate", onActivate);
+      window.removeEventListener("popstate", onPop);
+    };
   }, [lastScroll]);
 
   return (
@@ -39,7 +73,7 @@ function Nav() {
         </div>
 
         <nav className={styles.desktopNav}>
-          {["home", "about", "services", "gallery"].map((item) => (
+          {sections.map((item) => (
             <div key={item} className={styles.navItemWrapper}>
               <button
                 type="button"
@@ -73,7 +107,7 @@ function Nav() {
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.25 }}
           >
-            {["home", "about", "services", "gallery"].map((item) => (
+            {sections.map((item) => (
               <button
                 key={item}
                 type="button"

@@ -14,10 +14,9 @@
     content: "";
     position: absolute;
     top: 0;
-    right: 0;
-    width: 45%;
-    height: 110%;
-    /* background: url('/Images/services-bg.png') lightgray 50% / cover no-repeat; */
+    right: -10%;
+    width: 50%;
+    height: 100%;
     background:
         url('/Images/services-bg.png') right / cover no-repeat,
         linear-gradient(0deg,
@@ -47,7 +46,7 @@
     margin: 0 auto;
     padding: 0 40px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 28px;
     position: relative;
     z-index: 2;
@@ -56,11 +55,12 @@
 .card {
     background: #FAFBED;
     border-radius: 18px;
-    padding: 24px 20px;
+    padding: 28px 22px;
     border: 1px solid rgba(0, 0, 0, 0.15);
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 16px;
+    transition: all 0.25s ease;
 }
 
 .cardHeader {
@@ -83,25 +83,30 @@
     color: #492E3A;
 }
 
+/* ROW: double-line layout */
 .row {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    /* stack name + price */
+    align-items: flex-start;
     font-family: 'Inter';
     font-size: 15px;
-    padding: 6px 0;
+    padding: 10px 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     cursor: pointer;
+    gap: 4px;
 }
 
 .row:last-child {
     border-bottom: none;
 }
 
+/* FIRST LINE: checkbox + name */
 .leftSide {
     display: flex;
     align-items: center;
     gap: 10px;
+    width: 100%;
 }
 
 .checkbox {
@@ -112,16 +117,25 @@
 
 .itemName {
     color: #492E3A;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
+/* SECOND LINE: price aligned right */
 .price {
+    width: 100%;
     font-weight: 600;
     color: #492E3A;
-}
-
-/* Smooth animation for cards */
-.card {
-    transition: all 0.25s ease;
+    opacity: 0.85;
+    font-size: 14px;
+    text-align: right;
+    white-space: normal;
+    /* allow wrapping for long ranges */
+    word-break: break-word;
+    /* prevent overflow */
 }
 
 /* Highlight selected card */
@@ -139,6 +153,12 @@
     transition: background 0.25s ease, padding 0.25s ease;
 }
 
+.row+.row {
+    margin-top: 6px;
+}
+
+/* remove special case for card 2 to keep consistency */
+/* .card:nth-child(2) .row { ... } removed */
 
 @media (max-width: 1024px) {
     .heading {
@@ -151,7 +171,7 @@
     }
 
     .servicesWrapper::after {
-        width: 55%;
+        width: 100%;
     }
 }
 
@@ -168,5 +188,7 @@
     .servicesWrapper::after {
         width: 100%;
         opacity: 0.25;
+        right: 0;
+        height: 50%;
     }
 }

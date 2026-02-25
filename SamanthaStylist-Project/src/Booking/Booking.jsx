@@ -10,16 +10,21 @@ function Booking({ selectedServices }) {
     "Wash and Cut": "samantha-the-stylist/hair-styling-wash-cut",
     "Wash Cut & Style": "samantha-the-stylist/hair-styling-wash-cut-style",
     "Bangs Cut": "samantha-the-stylist/bangs-cut",
+    "Hair Trimming": "samantha-the-stylist/hair-trimming",
 
-    Keratin: "samantha-the-stylist/hair-treatment-keratin-protein",
-    Botox: "samantha-the-stylist/botox-treatment",
-    Protein: "samantha-the-stylist/protein-treatment",
+    "Keratin & Protein": "samantha-the-stylist/hair-treatment-keratin-protein",
+    "Hair Botox": "samantha-the-stylist/botox-treatment",
+    "Organic Protein": "samantha-the-stylist/protein-treatment",
+    "Hair Toning": "samantha-the-stylist/hair-toning",
+    Olaplex: "samantha-the-stylist/olaplex-treatment",
 
     "Full Dye": "samantha-the-stylist/full-dye",
     Highlights: "samantha-the-stylist/highlights",
-    Ombre: "samantha-the-stylist/ombre",
+    "Ombre & Balayage": "samantha-the-stylist/ombre-balayage",
 
-    Bridal: "samantha-the-stylist/bridal-makeup",
+    "Bridal Makeup and Hairstyle":
+      "samantha-the-stylist/bridal-makeup-hairstyle",
+    Evening: "samantha-the-stylist/evening-makeup",
     Party: "samantha-the-stylist/party-makeup",
     Prom: "samantha-the-stylist/prom-makeup",
   };

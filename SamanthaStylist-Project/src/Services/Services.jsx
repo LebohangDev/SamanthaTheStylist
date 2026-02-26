@@ -91,19 +91,17 @@ function Services({ onSelectService }) {
     <motion.section
       id="services"
       className={styles.servicesWrapper}
-      variants={sectionReveal}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <h2 className={styles.heading}>My Services</h2>
 
       <motion.div
         className={styles.grid}
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.2, duration: 0.6 }}
       >
         {serviceGroups.map((group, idx) => {
           const cardIsSelected = selected.some((s) =>

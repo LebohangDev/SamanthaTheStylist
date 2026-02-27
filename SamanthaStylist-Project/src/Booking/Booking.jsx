@@ -9,24 +9,33 @@ function Booking({ selectedServices }) {
   const calLinks = {
     "Wash and Cut": "samantha-the-stylist/hair-styling-wash-cut",
     "Wash Cut & Style": "samantha-the-stylist/hair-styling-wash-cut-style",
-    "Bangs Cut": "samantha-the-stylist/bangs-cut",
-    "Hair Trimming": "samantha-the-stylist/hair-trimming",
+    "Bangs Cut": "samantha-the-stylist/hair-styling-bangs-cut",
+    "Hair Trimming": "samantha-the-stylist/hair-styling-hair-trimming",
 
     "Keratin & Protein": "samantha-the-stylist/hair-treatment-keratin-protein",
-    "Hair Botox": "samantha-the-stylist/botox-treatment",
-    "Organic Protein": "samantha-the-stylist/protein-treatment",
-    "Hair Toning": "samantha-the-stylist/hair-toning",
-    Olaplex: "samantha-the-stylist/olaplex-treatment",
+    "Hair Botox": "samantha-the-stylist/hair-treatment-botox-treatment",
+    "Organic Protein": "samantha-the-stylist/hair-treatment-organic-protein",
+    "Hair Toning": "samantha-the-stylist/hair-treatment-hair-toning",
+    Olaplex: "samantha-the-stylist/hair-treatment-olaplex-treatment",
 
-    "Full Dye": "samantha-the-stylist/full-dye",
-    Highlights: "samantha-the-stylist/highlights",
-    "Ombre & Balayage": "samantha-the-stylist/ombre-balayage",
+    "Full Dye": "samantha-the-stylist/hair-dye-highlights-full-dye",
+    Highlights: "samantha-the-stylist/hair-dye-highlights-highlights",
+    "Ombre & Balayage":
+      "samantha-the-stylist/hair-dye-highlights-ombre-balayage",
 
     "Bridal Makeup and Hairstyle":
-      "samantha-the-stylist/bridal-makeup-hairstyle",
-    Evening: "samantha-the-stylist/evening-makeup",
-    Party: "samantha-the-stylist/party-makeup",
-    Prom: "samantha-the-stylist/prom-makeup",
+      "samantha-the-stylist/makeup-services-bridal-makeup-hairstyle",
+    Evening: "samantha-the-stylist/makeup-services-evening-makeup",
+    Party: "samantha-the-stylist/makeup-services-party-makeup",
+    Prom: "samantha-the-stylist/makeup-services-prom-makeup",
+
+    "Upper Lip Threading":
+      "samantha-the-stylist/eyebrows-upper-lips-upper-lip-threading",
+    "Eyebrows Threading":
+      "samantha-the-stylist/eyebrows-upper-lips-eyebrows-threading",
+    "Eyebrows Tint": "samantha-the-stylist/eyebrows-upper-lips-eyebrows-tint",
+    "Eyebrows & Lashes Tint":
+      "samantha-the-stylist/eyebrows-upper-lips-eyebrows-lashes-tint",
   };
 
   const activeService = selectedServices?.[0]?.name;

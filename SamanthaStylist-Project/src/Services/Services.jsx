@@ -8,7 +8,7 @@ function Services({ onSelectService }) {
   const [selected, setSelected] = useState([]);
 
   const scrollToBooking = () => {
-    const el = document.getElementById("booking-section");
+    const el = document.getElementById("booking");
     if (!el) return;
 
     const y = el.getBoundingClientRect().top + window.pageYOffset + 80;

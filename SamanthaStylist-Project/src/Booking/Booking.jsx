@@ -13,7 +13,7 @@ function Booking({ selectedServices }) {
     "Hair Trimming": "samantha-the-stylist/hair-styling-hair-trimming",
 
     "Keratin & Protein": "samantha-the-stylist/hair-treatment-keratin-protein",
-    "Hair Botox": "samantha-the-stylist/hair-treatment-botox-treatment",
+    "Hair Botox": "samantha-the-stylist/hair-treatment-hair-botox",
     "Organic Protein": "samantha-the-stylist/hair-treatment-organic-protein",
     "Hair Toning": "samantha-the-stylist/hair-treatment-hair-toning",
     Olaplex: "samantha-the-stylist/hair-treatment-olaplex-treatment",
@@ -24,13 +24,13 @@ function Booking({ selectedServices }) {
       "samantha-the-stylist/hair-dye-highlights-ombre-balayage",
 
     "Bridal Makeup and Hairstyle":
-      "samantha-the-stylist/makeup-services-bridal-makeup-hairstyle",
+      "samantha-the-stylist/makeup-services-bridal-makeup-and-hairstyle",
     Evening: "samantha-the-stylist/makeup-services-evening-makeup",
     Party: "samantha-the-stylist/makeup-services-party-makeup",
     Prom: "samantha-the-stylist/makeup-services-prom-makeup",
 
-    "Upper Lip Threading":
-      "samantha-the-stylist/eyebrows-upper-lips-upper-lip-threading",
+    "Upper Lips Threading":
+      "samantha-the-stylist/eyebrows-upper-lips-upper-lips-threading",
     "Eyebrows Threading":
       "samantha-the-stylist/eyebrows-upper-lips-eyebrows-threading",
     "Eyebrows Tint": "samantha-the-stylist/eyebrows-upper-lips-eyebrows-tint",
